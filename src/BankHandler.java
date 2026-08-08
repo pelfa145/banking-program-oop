@@ -1,24 +1,35 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class BankHandler {
     static Database data = new Database();
     static InputHandler input = new InputHandler();
 
     void makeInsertAcc() {
+        String first = "";
+        String last = "";
+        boolean valid = false;
+        while(!valid){
         System.out.print("Enter name: ");
-        String[] nameParts = input.returnString().split(" ");
-        System.out.println(Arrays.toString(nameParts));
-        String first;
-        String last;
-        if (nameParts.length > 2) {
-            first = nameParts[0] + " " + nameParts[1]+" ";
-            last = nameParts[2];
-            //outputs index out of bounds exception. fix please
-            System.out.println(first+last);
-        } else {
-            first = nameParts[0];
-            last = nameParts[1];
-        }
+        try{String inputs = input.returnString();
+            String[] inputz = inputs.split(" ");
+            ArrayList<String> nameParts = new ArrayList<>();
+            for (String string : inputz){
+                nameParts.add(string);
+            }
+        valid = true;
+            if (nameParts.size() > 2) {
+                first = nameParts.get(0) + " " + nameParts.get(1);
+                last = nameParts.get(2);
+            } else {
+                first = nameParts.get(0);
+                last = nameParts.get(1);
+            }}
+        catch (IndexOutOfBoundsException e){
+            System.out.println("Retry only name please.");
+            return;
+        }}
+
+
         int accID = generateAccNumber();
         try{data.bankAccounts.add(new BankAccount(first, last, accID, 0));
             System.out.println("Added "+first+"!, your Bank Account number is : "+accID);
