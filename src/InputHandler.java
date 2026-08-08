@@ -12,3 +12,6 @@ public class InputHandler {
     }
 
 }
+class InputValidation{
+
+}

@@ -24,7 +24,7 @@ public class Main {
             choice = input.returnInt();
             switch (choice) {
                 case 1 -> bankHandler.makeInsertAcc();
-                case 2 -> {}
+                case 2 -> bankHandler.openAcc();
                 case 3 -> System.out.print("Bye.");
             }
         }
