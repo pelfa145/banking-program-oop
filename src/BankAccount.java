@@ -17,19 +17,25 @@ static InputHandler input = new InputHandler();
     int getAccNumber(){return this.accNumber;}
     double getBalance(){return this.balance;}
     void BankAccountDetails(){
-        System.out.println(this.first+"'s Balance is: "+this.balance);
+        System.out.println(this.first+"'s Balance is: "+this.balance+"$");
     }
     //setters
     void deposit(){
         System.out.print("Deposit an amount: ");
         double amount = input.returnInt();
         double balanceNew = amount + this.balance;
+        String convert = Double.toString(balanceNew);
+        String result = convert.replace("-", "");
+        balanceNew = Double.parseDouble(result);
         this.balance += balanceNew;
     }
     void withdraw(){
         System.out.print("Withdraw an amount: ");
         double amount = input.returnInt();
-        double balanceNew = amount - this.balance;
-        this.balance += balanceNew;
+        if(amount > this.balance){
+            System.out.println("Your withdrawal amount exceeds your balance.");
+            return;
+        }
+        this.balance -= amount;
     }
 }

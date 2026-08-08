@@ -12,7 +12,7 @@ public class Main {
 //
 //        Gap filled: "What belongs inside a class?"
         //start here →
-        System.out.println(BankHandler.generateAccNumber());
+
         showMenu();
 
     }

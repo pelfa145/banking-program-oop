@@ -57,6 +57,7 @@ public class BankHandler {
         BankAccount openedAccount = data.bankAccounts.get(index);
         do {
             System.out.println("1. Deposit\n2. Withdraw\n3. Show Balance\n4. Return to menu");
+            System.out.print("Enter your choice: ");
             choice = input.returnInt();
             switch (choice) {
                 case 1 -> openedAccount.deposit();
