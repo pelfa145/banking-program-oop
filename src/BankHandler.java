@@ -11,7 +11,7 @@ public class BankHandler {
         String first;
         String last;
         if (nameParts.length > 2) {
-            first = nameParts[0] + " " + nameParts[1];
+            first = nameParts[0] + " " + nameParts[1]+" ";
             last = nameParts[2];
             //outputs index out of bounds exception. fix please
             System.out.println(first+last);
@@ -29,7 +29,7 @@ public class BankHandler {
     }
 
     static int generateAccNumber() {
-        if ((data.bankAccounts.get(0).getAccNumber()) == 0) {
+        if (data.bankAccounts.isEmpty()) {
             return 2026000;
         } else {
             int lastID = data.bankAccounts.getLast().getAccNumber();
