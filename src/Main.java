@@ -23,9 +23,10 @@ public class Main {
             System.out.print("Input your choice: ");
             choice = input.returnInt();
             switch (choice) {
-                case 1 -> bankHandler.makeInsertAcc();
+                case 1 -> Database.makeInsertAcc();
                 case 2 -> bankHandler.openAcc();
                 case 3 -> System.out.print("Bye.");
+                default -> System.out.println("Choose through options 1-3.");
             }
         }
     }
