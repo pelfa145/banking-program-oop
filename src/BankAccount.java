@@ -26,7 +26,7 @@ static InputHandler input = new InputHandler();
         String convert = Double.toString(amount);
         String result = convert.replace("-", "");
         amount = Double.parseDouble(result);
-        this.balance += balanceNew;
+        this.balance += amount;
     }
     void withdraw(){
         System.out.print("Withdraw an amount: ");
