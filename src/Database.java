@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 public class Database {
-    private static ArrayList<BankAccount> bankAccounts = new ArrayList<>();
+    private static final ArrayList<BankAccount> bankAccounts = new ArrayList<>();
     static InputHandler input = new InputHandler();
 
     static int findAccount(int AccountNumber){
@@ -12,7 +12,7 @@ public class Database {
         }
         return -1;
     }
-    public static void makeInsertAcc() {
+    void makeInsertAcc() {
         String first = "";
         String last = "";
         boolean valid = false;
@@ -53,6 +53,14 @@ public class Database {
     }
     ArrayList<BankAccount> getAccount(){
         return bankAccounts;
+    }
+    void deleteAccount(){
+        System.out.print("Enter the account number you want deleted: ");
+        int rawInput = input.returnInt();
+        int index = findAccount(rawInput);
+        String removedAccount = bankAccounts.get(index).getName();
+        bankAccounts.remove(index);
+        System.out.println("Removed "+removedAccount+"'s account.");
     }
 
 }
