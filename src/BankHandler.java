@@ -51,9 +51,9 @@ public class BankHandler {
         } else {
             System.out.println("No bank accounts found. Please create one first");
             return;
-        }//error handling here
+        }
         int index = data.findAccount(bankAccNum);
-        if(index==0){
+        if(index==-1){
             System.out.println("Bank account not found.");
             return;
         }
