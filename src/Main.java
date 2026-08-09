@@ -2,6 +2,7 @@ public class Main {
     static InputHandler input = new InputHandler();
     static BankHandler bankHandler = new BankHandler();
     static Database data = new Database();
+
     public static void main(String[] args) {
 //        Bank Account System
 //
@@ -17,9 +18,10 @@ public class Main {
         showMenu();
 
     }
-    static void showMenu(){
+
+    static void showMenu() {
         int choice = -1;
-        while(choice != 4) {
+        while (choice != 4) {
             System.out.print("BANKING PROGRAM OOP\n\n1. Make Account\n2. Open Account\n3. Delete account\n4. Exit\n");
             System.out.print("Input your choice: ");
             choice = input.returnInt();

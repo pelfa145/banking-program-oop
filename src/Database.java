@@ -1,17 +1,19 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+
 public class Database {
     private static final ArrayList<BankAccount> bankAccounts = new ArrayList<>();
     static InputHandler input = new InputHandler();
 
-    static int findAccount(int AccountNumber){
+    static int findAccount(int AccountNumber) {
         for (int i = 0; i < bankAccounts.size(); i++) {
-            if(bankAccounts.get(i).getAccNumber()==AccountNumber){
+            if (bankAccounts.get(i).getAccNumber() == AccountNumber) {
                 return i;
             }
         }
         return -1;
     }
+
     void makeInsertAcc() {
         String first = "";
         String last = "";
@@ -43,6 +45,7 @@ public class Database {
             }
         }
     }
+
     static int generateAccNumber() {
         if (bankAccounts.isEmpty()) {
             return 2026000;
@@ -51,16 +54,18 @@ public class Database {
             return lastID + 1;
         }
     }
-    ArrayList<BankAccount> getAccount(){
+
+    ArrayList<BankAccount> getAccount() {
         return bankAccounts;
     }
-    void deleteAccount(){
+
+    void deleteAccount() {
         System.out.print("Enter the account number you want deleted: ");
         int rawInput = input.returnInt();
         int index = findAccount(rawInput);
         String removedAccount = bankAccounts.get(index).getName();
         bankAccounts.remove(index);
-        System.out.println("Removed "+removedAccount+"'s account.");
+        System.out.println("Removed " + removedAccount + "'s account.");
     }
 
 }

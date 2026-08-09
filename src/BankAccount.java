@@ -1,26 +1,37 @@
 public class BankAccount {
-static Database data = new Database();
-static InputHandler input = new InputHandler();
+    static Database data = new Database();
+    static InputHandler input = new InputHandler();
     private double balance;
     private String first;
     private String last;
     private int accNumber;
 
-    BankAccount(String first, String last, int accNumber, double balance){
+    BankAccount(String first, String last, int accNumber, double balance) {
         this.first = first;
         this.last = last;
         this.accNumber = accNumber;
         this.balance = balance;
     }
+
     //getters
-    String getName(){return this.first+ " " + this.last;}
-    int getAccNumber(){return this.accNumber;}
-    double getBalance(){return this.balance;}
-    void BankAccountDetails(){
-        System.out.println(this.first+"'s Balance is: "+this.balance+"$");
+    String getName() {
+        return this.first + " " + this.last;
     }
+
+    int getAccNumber() {
+        return this.accNumber;
+    }
+
+    double getBalance() {
+        return this.balance;
+    }
+
+    void BankAccountDetails() {
+        System.out.println(this.first + "'s Balance is: " + this.balance + "$");
+    }
+
     //setters
-    void setBalance(double amount){
-       this.balance += amount;
+    void setBalance(double amount) {
+        this.balance += amount;
     }
 }

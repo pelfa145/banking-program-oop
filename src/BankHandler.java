@@ -6,6 +6,7 @@ public class BankHandler {
     static InputHandler input = new InputHandler();
     static BankAccount CurrOpenedAcc;
     static Database data = new Database();
+
     void openAcc() {
 
         System.out.print("Enter bank account number: ");
@@ -20,7 +21,7 @@ public class BankHandler {
 
         int index = Database.findAccount(bankAccNum);
 
-        if(index==-1){
+        if (index == -1) {
             System.out.println("Bank account not found.");
             return;
         }
@@ -44,7 +45,7 @@ public class BankHandler {
     }
 
 
-    private static void deposit(){
+    private static void deposit() {
         System.out.print("Deposit an amount: ");
         double amount = input.returnInt();
         String convert = Double.toString(amount);
@@ -53,10 +54,11 @@ public class BankHandler {
         CurrOpenedAcc.setBalance(amount);
 
     }
-    private static void withdraw(){
+
+    private static void withdraw() {
         System.out.print("Withdraw an amount: ");
         double amount = input.returnInt();
-        if(amount > CurrOpenedAcc.getBalance()){
+        if (amount > CurrOpenedAcc.getBalance()) {
             System.out.println("Your withdrawal amount exceeds your balance.");
             return;
         }
