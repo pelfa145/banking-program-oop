@@ -23,10 +23,9 @@ static InputHandler input = new InputHandler();
     void deposit(){
         System.out.print("Deposit an amount: ");
         double amount = input.returnInt();
-        double balanceNew = amount + this.balance;
-        String convert = Double.toString(balanceNew);
+        String convert = Double.toString(amount);
         String result = convert.replace("-", "");
-        balanceNew = Double.parseDouble(result);
+        amount = Double.parseDouble(result);
         this.balance += balanceNew;
     }
     void withdraw(){

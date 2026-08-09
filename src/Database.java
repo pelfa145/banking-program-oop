@@ -10,6 +10,6 @@ public class Database {
             }
         }
 
-        return -1;
+        return 0;
     }
 }

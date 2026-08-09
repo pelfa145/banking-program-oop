@@ -47,12 +47,16 @@ public class BankHandler {
         if (!data.bankAccounts.isEmpty()) {
             for (int i = 0; i < data.bankAccounts.size(); i++) {
                 System.out.println(data.bankAccounts.get(i).getAccNumber());
-            }//ask input to of entering bank acc number
+            }
         } else {
             System.out.println("No bank accounts found. Please create one first");
             return;
-        }
+        }//error handling here
         int index = data.findAccount(bankAccNum);
+        if(index==0){
+            System.out.println("Bank account not found.");
+            return;
+        }
         int choice;
         BankAccount openedAccount = data.bankAccounts.get(index);
         do {
