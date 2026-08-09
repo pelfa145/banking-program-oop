@@ -20,21 +20,7 @@ static InputHandler input = new InputHandler();
         System.out.println(this.first+"'s Balance is: "+this.balance+"$");
     }
     //setters
-    void deposit(){
-        System.out.print("Deposit an amount: ");
-        double amount = input.returnInt();
-        String convert = Double.toString(amount);
-        String result = convert.replace("-", "");
-        amount = Double.parseDouble(result);
-        this.balance += amount;
-    }
-    void withdraw(){
-        System.out.print("Withdraw an amount: ");
-        double amount = input.returnInt();
-        if(amount > this.balance){
-            System.out.println("Your withdrawal amount exceeds your balance.");
-            return;
-        }
-        this.balance -= amount;
+    void setBalance(double amount){
+       this.balance += amount;
     }
 }

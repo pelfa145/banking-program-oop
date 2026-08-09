@@ -6,6 +6,8 @@ public class BankHandler {
     static Database data = new Database();
     static InputHandler input = new InputHandler();
 
+    static BankAccount CurrOpenedAcc;
+
     void makeInsertAcc() {
         String first = "";
         String last = "";
@@ -59,13 +61,14 @@ public class BankHandler {
         }
         int choice;
         BankAccount openedAccount = data.bankAccounts.get(index);
+        CurrOpenedAcc = openedAccount;
         do {
             System.out.println("1. Deposit\n2. Withdraw\n3. Show Balance\n4. Return to menu");
             System.out.print("Enter your choice: ");
             choice = input.returnInt();
             switch (choice) {
-                case 1 -> openedAccount.deposit();
-                case 2 -> openedAccount.withdraw();
+                case 1 -> deposit();
+                case 2 -> withdraw();
                 case 3 -> openedAccount.BankAccountDetails();
                 case 4 -> System.out.println("Okay");
             }
@@ -79,5 +82,25 @@ public class BankHandler {
             int lastID = data.bankAccounts.getLast().getAccNumber();
             return lastID + 1;
         }
+    }
+    private static void deposit(){
+        System.out.print("Deposit an amount: ");
+        double amount = input.returnInt();
+        String convert = Double.toString(amount);
+        String result = convert.replace("-", "");
+        amount = Double.parseDouble(result);
+        CurrOpenedAcc.setBalance(amount);
+
+    }
+    private static void withdraw(){
+        System.out.print("Withdraw an amount: ");
+        double amount = input.returnInt();
+        if(amount > CurrOpenedAcc.getBalance()){
+            System.out.println("Your withdrawal amount exceeds your balance.");
+            return;
+        }
+        double newAmount = -amount;
+        CurrOpenedAcc.setBalance(newAmount);
+
     }
 }
