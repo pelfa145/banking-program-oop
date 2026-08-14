@@ -12,39 +12,11 @@ public class Database {
         return -1;
     }
 
-    void makeInsertAcc() {
-        String first = "";
-        String last = "";
-        boolean valid = false;
-        while (!valid) {
-            System.out.print("Enter name: ");
-            try {
-                String inputs = input.returnString();
-                String[] inputz = inputs.split(" ");
-                ArrayList<String> nameParts = new ArrayList<>(Arrays.asList(inputz));
-                valid = true;
-                if (nameParts.size() > 2) {
-                    first = nameParts.get(0) + " " + nameParts.get(1);
-                    last = nameParts.get(2);
-                } else {
-                    first = nameParts.get(0);
-                    last = nameParts.get(1);
-                }
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("Retry only name please.");
-                return;
-            }
-            int accID = generateAccNumber();
-            try {
-                bankAccounts.add(new BankAccount(first, last, accID, 0));
-                System.out.println("Added " + first + "!, your Bank Account number is : " + accID);
-            } catch (Exception e) {
-                System.out.println("Something went wrong please try again.");
-            }
-        }
+    void InsertAcc(String first, String last, int accID) {
+        bankAccounts.add(new BankAccount(first, last, accID, 0));
     }
 
-    static int generateAccNumber() {
+    int generateAccNumber() {
         if (bankAccounts.isEmpty()) {
             return 2026000;
         } else {
@@ -53,7 +25,7 @@ public class Database {
         }
     }
 
-    ArrayList<BankAccount> getAccount() {
+    static ArrayList<BankAccount> getAccount() {
         return bankAccounts;
     }
 

@@ -15,7 +15,7 @@ public class Main {
             System.out.print("Input your choice: ");
             choice = input.returnInt();
             switch (choice) {
-                case 1 -> data.makeInsertAcc();
+                case 1 -> input.AskUserInput();
                 case 2 -> bankHandler.openAcc();
                 case 3 -> data.deleteAccount();
                 case 4 -> System.out.print("Bye.");
