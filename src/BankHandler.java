@@ -5,21 +5,16 @@ import java.util.Arrays;
 public class BankHandler {
     static InputHandler input = new InputHandler();
     static BankAccount CurrOpenedAcc;
-    static Database data = new Database();
 
     void openAcc() {
 
         System.out.print("Enter bank account number: ");
         int bankAccNum = input.returnInt();
-        if (!data.getAccount().isEmpty()) {
-            for (int i = 0; i < data.getAccount().size(); i++) {
-            }
-        } else {
+        if (Database.getAccount().isEmpty()) {
             System.out.println("No bank accounts found. Please create one first");
             return;
         }
-
-        int index = data.findAccount(bankAccNum);
+        int index = Database.findAccount(bankAccNum);
 
         if (index == -1) {
             System.out.println("Bank account not found.");
@@ -27,7 +22,7 @@ public class BankHandler {
         }
 
         int choice;
-        BankAccount openedAccount = data.getAccount().get(index);
+        BankAccount openedAccount = Database.getAccount().get(index);
         CurrOpenedAcc = openedAccount;
 
         do {
@@ -47,7 +42,7 @@ public class BankHandler {
 
     private static void deposit() {
         System.out.print("Deposit an amount: ");
-        double amount = input.returnInt();
+        double amount = input.returnDouble();
         String convert = Double.toString(amount);
         String result = convert.replace("-", "");
         amount = Double.parseDouble(result);
@@ -57,7 +52,7 @@ public class BankHandler {
 
     private static void withdraw() {
         System.out.print("Withdraw an amount: ");
-        double amount = input.returnInt();
+        double amount = input.returnDouble();
         if (amount > CurrOpenedAcc.getBalance()) {
             System.out.println("Your withdrawal amount exceeds your balance.");
             return;

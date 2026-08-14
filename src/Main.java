@@ -1,7 +1,6 @@
 public class Main {
     static InputHandler input = new InputHandler();
     static BankHandler bankHandler = new BankHandler();
-    static Database data = new Database();
 
     public static void main(String[] args) {
         showMenu();

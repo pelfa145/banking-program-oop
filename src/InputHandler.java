@@ -4,12 +4,17 @@ import java.util.Scanner;
 
 public class InputHandler {
     static Scanner input = new Scanner(System.in);
-    static Database data = new Database();
 
     int returnInt() {
         int Int = input.nextInt();
         input.nextLine();
         return Int;
+    }
+
+    Double returnDouble(){
+        Double dbl = input.nextDouble();
+        input.nextLine();
+        return dbl;
     }
 
     String returnString() {
@@ -43,27 +48,29 @@ public class InputHandler {
         }
 
         try {
-            int accID = data.generateAccNumber();
-            data.InsertAcc(first, last, accID);
+            int accID = Database.generateAccNumber();
+            Database.InsertAcc(first, last, accID);
             System.out.println("Added " + first + "!, your Bank Account number is : " + accID);
         } catch (Exception e) {
             System.out.println("Something went wrong please try again.");
         }
     }
 
+
+
     void DeleteUser(){
         boolean valid = false;
         while(!valid) {
             System.out.print("Enter the account number you want deleted: ");
             int rawInput = returnInt();
-            int index = data.findAccount(rawInput);
+            int index = Database.findAccount(rawInput);
             if (index == -1) {
                 System.out.println("Bank account not found.");
                 continue;
             }
             valid = true;
 
-            String removedAcc = data.deleteAccount(index);
+            String removedAcc = Database.deleteAccount(index);
             System.out.println("Removed " + removedAcc + "'s account.");
 
         }

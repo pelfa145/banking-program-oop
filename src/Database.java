@@ -3,20 +3,21 @@ import java.util.Arrays;
 
 public class Database {
     private static final ArrayList<BankAccount> bankAccounts = new ArrayList<>();
-    static InputHandler input = new InputHandler();
 
-    int findAccount(int AccountNumber) {
+    static int findAccount(int AccountNumber) {
         for (int i = 0; i < bankAccounts.size(); i++) {
+            if (bankAccounts.get(i).getAccNumber() == AccountNumber) {
                 return i;
+            }
         }
         return -1;
     }
 
-    void InsertAcc(String first, String last, int accID) {
+    static void InsertAcc(String first, String last, int accID) {
         bankAccounts.add(new BankAccount(first, last, accID, 0));
     }
 
-    int generateAccNumber() {
+    static int generateAccNumber() {
         if (bankAccounts.isEmpty()) {
             return 2026000;
         } else {
@@ -25,11 +26,11 @@ public class Database {
         }
     }
 
-    ArrayList<BankAccount> getAccount() {
+    static ArrayList<BankAccount> getAccount() {
         return bankAccounts;
     }
 
-    String deleteAccount(int index) {
+    static String deleteAccount(int index) {
         String removedAccount = bankAccounts.get(index).getName();
         bankAccounts.remove(index);
         return removedAccount;
