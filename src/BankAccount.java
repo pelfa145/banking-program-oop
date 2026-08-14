@@ -1,10 +1,8 @@
 public class BankAccount {
-    static Database data = new Database();
-    static InputHandler input = new InputHandler();
     private double balance;
-    private String first;
-    private String last;
-    private int accNumber;
+    private final String first;
+    private final String last;
+    private final int accNumber;
 
     BankAccount(String first, String last, int accNumber, double balance) {
         this.first = first;

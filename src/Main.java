@@ -4,17 +4,6 @@ public class Main {
     static Database data = new Database();
 
     public static void main(String[] args) {
-//        Bank Account System
-//
-//                BankAccount
-//        deposit / withdraw / balance
-//        private fields
-//                validation
-//        constructors
-//
-//        Gap filled: "What belongs inside a class?"
-        //start here →
-
         showMenu();
 
     }

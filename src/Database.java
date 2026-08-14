@@ -7,9 +7,7 @@ public class Database {
 
     static int findAccount(int AccountNumber) {
         for (int i = 0; i < bankAccounts.size(); i++) {
-            if (bankAccounts.get(i).getAccNumber() == AccountNumber) {
                 return i;
-            }
         }
         return -1;
     }
@@ -63,6 +61,10 @@ public class Database {
         System.out.print("Enter the account number you want deleted: ");
         int rawInput = input.returnInt();
         int index = findAccount(rawInput);
+        if (index == -1) {
+            System.out.println("Bank account not found.");
+            return;
+        }
         String removedAccount = bankAccounts.get(index).getName();
         bankAccounts.remove(index);
         System.out.println("Removed " + removedAccount + "'s account.");
