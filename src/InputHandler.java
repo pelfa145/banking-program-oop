@@ -17,4 +17,12 @@ public class InputHandler {
 
 class InputValidation {
 
+    int ValidateAge(int age){
+
+        if(age < 100){
+
+        }
+
+        return age;
+    }
 }
