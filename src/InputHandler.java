@@ -50,6 +50,24 @@ public class InputHandler {
             System.out.println("Something went wrong please try again.");
         }
     }
+
+    void DeleteUser(){
+        boolean valid = false;
+        while(!valid) {
+            System.out.print("Enter the account number you want deleted: ");
+            int rawInput = returnInt();
+            int index = data.findAccount(rawInput);
+            if (index == -1) {
+                System.out.println("Bank account not found.");
+                continue;
+            }
+            valid = true;
+
+            String removedAcc = data.deleteAccount(index);
+            System.out.println("Removed " + removedAcc + "'s account.");
+
+        }
+    }
 }
 
 

@@ -19,7 +19,7 @@ public class BankHandler {
             return;
         }
 
-        int index = Database.findAccount(bankAccNum);
+        int index = data.findAccount(bankAccNum);
 
         if (index == -1) {
             System.out.println("Bank account not found.");

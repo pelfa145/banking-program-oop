@@ -17,7 +17,7 @@ public class Main {
             switch (choice) {
                 case 1 -> input.AskUserInput();
                 case 2 -> bankHandler.openAcc();
-                case 3 -> data.deleteAccount();
+                case 3 -> input.DeleteUser();
                 case 4 -> System.out.print("Bye.");
                 default -> System.out.println("Choose through options 1-4.");
             }

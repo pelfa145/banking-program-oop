@@ -5,7 +5,7 @@ public class Database {
     private static final ArrayList<BankAccount> bankAccounts = new ArrayList<>();
     static InputHandler input = new InputHandler();
 
-    static int findAccount(int AccountNumber) {
+    int findAccount(int AccountNumber) {
         for (int i = 0; i < bankAccounts.size(); i++) {
                 return i;
         }
@@ -25,21 +25,14 @@ public class Database {
         }
     }
 
-    static ArrayList<BankAccount> getAccount() {
+    ArrayList<BankAccount> getAccount() {
         return bankAccounts;
     }
 
-    void deleteAccount() {
-        System.out.print("Enter the account number you want deleted: ");
-        int rawInput = input.returnInt();
-        int index = findAccount(rawInput);
-        if (index == -1) {
-            System.out.println("Bank account not found.");
-            return;
-        }
+    String deleteAccount(int index) {
         String removedAccount = bankAccounts.get(index).getName();
         bankAccounts.remove(index);
-        System.out.println("Removed " + removedAccount + "'s account.");
+        return removedAccount;
     }
 
 }
