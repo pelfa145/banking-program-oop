@@ -24,6 +24,9 @@ public class BankAccount {
         return this.balance;
     }
 
+    String getFirst(){return this.first;}
+    String getLast(){return this.last;}
+
     void BankAccountDetails() {
         System.out.println(this.first + "'s Balance is: " + this.balance + "$");
     }

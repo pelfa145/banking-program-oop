@@ -47,7 +47,7 @@ public class BankHandler {
         String result = convert.replace("-", "");
         amount = Double.parseDouble(result);
         CurrOpenedAcc.setBalance(amount);
-
+        FileHandling.saveFile();
     }
 
     private static void withdraw() {
@@ -59,6 +59,6 @@ public class BankHandler {
         }
         double newAmount = -amount;
         CurrOpenedAcc.setBalance(newAmount);
-
+        FileHandling.saveFile();
     }
 }

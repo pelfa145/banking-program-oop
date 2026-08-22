@@ -16,6 +16,9 @@ public class Database {
     static void InsertAcc(String first, String last, int accID) {
         bankAccounts.add(new BankAccount(first, last, accID, 0));
     }
+    static void InsertAcc(String first, String last, int accID, double balance) {
+        bankAccounts.add(new BankAccount(first, last, accID, balance));
+    }
 
     static int generateAccNumber() {
         if (bankAccounts.isEmpty()) {
